@@ -5,6 +5,7 @@ import logging
 import datetime
 from .util import CreateDirFileHandler
 import traceback
+from . import agent
 
 class Controller():
     """Controlls all Agents and the Communication with them over IPC
@@ -93,7 +94,14 @@ class Controller():
                 return False
             agent_queue = multiprocessing.Queue()
             self.agent_queues[agent_id] = agent_queue
-            a = importlib.import_module("core.agent").Agent(agent_id, agent_name, self.controller_queue, agent_queue, self.logging_path, self.DEBUG)
+
+            # new version TODO: check with Simon: why would u use importlib.import_module() here?
+            a = agent.Agent(agent_id, agent_name, self.controller_queue, agent_queue, self.logging_path, self.DEBUG)
+            # old version
+            # a = importlib.import_module("pyjamas_core.agent").Agent(agent_id, agent_name, self.controller_queue, agent_queue, self.logging_path, self.DEBUG)
+            # vary old version
+            # a = importlib.import_module("core.agent").Agent(agent_id, agent_name, self.controller_queue, agent_queue, self.logging_path, self.DEBUG)
+
             self.log_debug(f'created agent (agent_id = {a.id} agent_name = {a.name})')
             self.agents[agent_id] = a
             self.log_debug(f'added agent (agent_id = {a.id} agent_name = {a.name})')
