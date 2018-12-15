@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pyjamas_core",
-    version="0.0.1",
+    version="0.1.0",
     author="agittarius",
     author_email="info@agittarius.ch",
     description="Pyjamas Core Package",
