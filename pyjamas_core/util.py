@@ -1,10 +1,7 @@
 import asyncio
 import os
-import importlib
 import logging
 import errno
-import time
-import json
 
 
 class Port():
