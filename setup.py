@@ -11,7 +11,7 @@ setuptools.setup(
     description="Pyjamas Core Package",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/sampleproject",
+    url="https://github.com/schmocker/pyjamas_core",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
